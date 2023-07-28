@@ -5,19 +5,22 @@ import java.util.List;
 public class Demo {
     private static Iconverter strategy;
     private static final List<String> conversionOption = new ArrayList<>();
-
-    private static final Converter conversion = new Converter();
+private static final    List<String> money = new ArrayList<>();
+    private static final Converter converter = new Converter();
 
 
     static {
         conversionOption.add("Monedas");
         conversionOption.add("Temperatura");
+        money.add("Dolar");
+        money.add("Peso Mexicano");
+        money.add("Euro");
     }
 
 
     public static void main(String[] args) {
 
-        while (!conversion.isEnd()) {
+        while (!converter.isEnd()) {
 
             String op = (String) JOptionPane.showInputDialog(null, "seleccione", "seleccion",
                     JOptionPane.PLAIN_MESSAGE, null,
@@ -32,7 +35,22 @@ public class Demo {
 
                                 String input = JOptionPane.showInputDialog(null, "Ingrese el valor a convertir");
                                 double receivedValue = Double.parseDouble(input);
-                                strategy = new ConvertToDollar(receivedValue);
+                                String inputM = (String) JOptionPane.showInputDialog(null,"Seleccione el tipo de " +
+                                                "cambio" +
+                                                " ?","seleccione",
+                                        JOptionPane.PLAIN_MESSAGE,null,money.toArray(new String[0]),money);
+                                switch (inputM){
+                                    case "Dolar" ->{
+                                        strategy = new ConvertToDollar(receivedValue);
+                                    }
+                                    case "Peso Mexicano" ->{
+                                        strategy = new ConvertToPesoMx(receivedValue);
+                                    }
+                                    case "Euro" ->{
+                                        strategy = new ConvertertToEuro(receivedValue);
+                                    }
+                                }
+
                             } catch (NumberFormatException n) {
                                 JOptionPane.showMessageDialog(null, "Debe ingresar obligatoriamente un numero");
                                 keepGoing = true;
@@ -42,16 +60,16 @@ public class Demo {
                             }
                         } while (keepGoing);
                         try {
-                            conversion.processConver(strategy);
+                            converter.processConver(strategy);
                         } catch (NullPointerException ignored) {
 
                         }
                         int option = JOptionPane.showConfirmDialog(null, "Desea realizar otra conversion");
                         if (JOptionPane.OK_OPTION == option) {
-                            conversion.isEnd();
+                            converter.isEnd();
                         } else {
                             JOptionPane.showMessageDialog(null, "Saliendo del programa");
-                            conversion.setEnd();
+                            converter.setEnd();
                         }
                     }
 
@@ -72,20 +90,20 @@ public class Demo {
                         } while (keepGoing2);
 
                         try {
-                            conversion.processConver(strategy);
+                            converter.processConver(strategy);
                         } catch (NullPointerException ignored) {
                         }
                         int option2 = JOptionPane.showConfirmDialog(null, "Desea realizar otra conversion");
                         if (JOptionPane.OK_OPTION == option2) {
-                            conversion.isEnd();
+                            converter.isEnd();
                         } else {
                             JOptionPane.showMessageDialog(null, "Saliendo del programa");
-                            conversion.setEnd();
+                            converter.setEnd();
                         }
                     }
                 }
             } catch (NullPointerException e) {
-                conversion.setEnd();
+                converter.setEnd();
             }
 
 
