@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConvertToPesoMx implements Iconverter{
+public class ConvertToPesoMx extends ConvertToDollar implements Iconverter{
 
     private double value;
     private static final Map<String,Double> valorPesoMx = new HashMap<>();
@@ -17,8 +17,12 @@ public class ConvertToPesoMx implements Iconverter{
     }
 
     public ConvertToPesoMx(double value) {
-        this.value = value;
+        super(value);
     }
+
+    /*public ConvertToPesoMx(double value) {
+        this.value = value;
+    }*/
 
     public double getValue() {
         return value;

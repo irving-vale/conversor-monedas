@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConvertToDollar implements Iconverter {
+public class ConvertToDollar extends Money {
 
-    private double value;
+
 
     private static final Map <String,Double> valorDolar = new HashMap<>();
 
@@ -18,7 +18,8 @@ public class ConvertToDollar implements Iconverter {
     }
 
     public ConvertToDollar(double value) {
-        this.value = value;
+        super(value);
+
     }
 
     public double getValue() {
@@ -28,6 +29,7 @@ public class ConvertToDollar implements Iconverter {
     public void setValue(double value) {
         this.value = value;
     }
+
 
 
     @Override
