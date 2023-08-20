@@ -26,9 +26,7 @@ public class ConvertertToEuro extends Money {
         return value;
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
+
 
     @Override
     public void calculaConversion() {
@@ -44,7 +42,7 @@ public class ConvertertToEuro extends Money {
                 ,JOptionPane.PLAIN_MESSAGE, null,
                 valorEuro.keySet().toArray(new String[0]), valorEuro);
         double choiceGetValor = valorEuro.get(choice);
-        double result = value * choiceGetValor;
+        double result = getValue() * choiceGetValor;
         result = Math.round(result * 1000.0)/ 1000.0;
         JOptionPane.showMessageDialog(null,"Tienes $" + result + " " +"Euros");
         System.out.println(choiceGetValor);

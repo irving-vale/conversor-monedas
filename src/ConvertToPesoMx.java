@@ -28,17 +28,14 @@ public class ConvertToPesoMx extends ConvertToDollar implements Iconverter{
         return value;
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
 
     @Override
     public void calculaConversion() {
-        String choice = (String) JOptionPane.showInputDialog(null,"seleccion","seleccion"
+        var choice = (String) JOptionPane.showInputDialog(null,"seleccion","seleccion"
                 ,JOptionPane.PLAIN_MESSAGE, null,
                 valorPesoMx.keySet().toArray(new String[0]), valorPesoMx);
         double choiceGetValor = valorPesoMx.get(choice);
-        double result = value * choiceGetValor;
+        double result = getValue() * choiceGetValor;
         result = Math.round(result * 1000.0)/ 1000.0;
         JOptionPane.showMessageDialog(null,"Tienes $" + result +" " + "Pesos Mexicanos");
         System.out.println(choiceGetValor);

@@ -26,19 +26,18 @@ public class ConvertToDollar extends Money {
         return value;
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
+
 
 
 
     @Override
     public void calculaConversion() {
-        String choice = (String) JOptionPane.showInputDialog(null,"seleccion","seleccion"
+        String choice;
+        choice = (String) JOptionPane.showInputDialog(null,"seleccion","seleccion"
                 ,JOptionPane.PLAIN_MESSAGE, null,
                 valorDolar.keySet().toArray(new String[0]), valorDolar);
-            double choiceGetValor = valorDolar.get(choice);
-            double result = value * choiceGetValor;
+        double choiceGetValor = valorDolar.get(choice);
+            double result = getValue() * choiceGetValor;
             result = Math.round(result * 1000.0)/ 1000.0;
             JOptionPane.showMessageDialog(null,"Tienes $" + result + " " + "Dolares");
             System.out.println(choiceGetValor);
