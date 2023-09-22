@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.Map;
 
 public class Temperatura implements Iconverter {
 
@@ -7,6 +8,8 @@ public class Temperatura implements Iconverter {
     public Temperatura(double value) {
         this.value = value;
     }
+
+
 
     @Override
     public void calculaConversion() {

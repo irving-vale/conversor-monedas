@@ -2,25 +2,25 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Demo {
+/*public class Demo {
     private static Iconverter strategy;
     private static final List<String> conversionOption = new ArrayList<>();
 private static final    List<String> money = new ArrayList<>();
-    private static final Converter converter = new Converter();
+    //private static final Converter converter = new Converter();
 
 
     static {
         conversionOption.add("Monedas");
         conversionOption.add("Temperatura");
-        money.add("Dolar");
-        money.add("Peso Mexicano");
-        money.add("Euro");
+        money.add("A Dolar");
+        money.add("A Peso Mexicano");
+        money.add("A Euro");
     }
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
-        while (!converter.isEnd()) {
+        /*while (!converter.isEnd()) {
 
             String op = (String) JOptionPane.showInputDialog(null, "seleccione", "seleccion",
                     JOptionPane.PLAIN_MESSAGE, null,
@@ -35,18 +35,18 @@ private static final    List<String> money = new ArrayList<>();
 
                                 String input = JOptionPane.showInputDialog(null, "Ingrese el valor a convertir");
                                 double receivedValue = Double.parseDouble(input);
-                                String inputM = (String) JOptionPane.showInputDialog(null,"Seleccione el tipo de " +
-                                                "cambio" +
+                                String inputM = (String) JOptionPane.showInputDialog(null,"Seleccione a que moneda " +
+                                                "quiere cambiar" +
                                                 " ?","seleccione",
                                         JOptionPane.PLAIN_MESSAGE,null,money.toArray(new String[0]),money);
                                 switch (inputM){
-                                    case "Dolar" ->{
+                                    case "A Dolar" ->{
                                         strategy = new ConvertToDollar(receivedValue);
                                     }
-                                    case "Peso Mexicano" ->{
+                                    case "A Peso Mexicano" ->{
                                         strategy = new ConvertToPesoMx(receivedValue);
                                     }
-                                    case "Euro" ->{
+                                    case "A Euro" ->{
                                         strategy = new ConvertertToEuro(receivedValue);
                                     }
                                 }
@@ -112,5 +112,5 @@ private static final    List<String> money = new ArrayList<>();
 
     }
 
-}
+}*/
 
